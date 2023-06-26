@@ -23,3 +23,4 @@ node install dotenv express openai
 ```
 node server.js
 ```
+* Open http://localhost:3000/ on your browser to see the app running
