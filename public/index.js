@@ -35,12 +35,12 @@ function generateGPTResponse(prompt) {
       .then(response => response.json())
       .then(data => {
         const apiKey = data.apiKey; // Retrieve the API key from the response
-        // Use the apiKey in your API request
+        // Use the apiKey in the API request
         fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}` // Pass the API key or access token
+            'Authorization': `Bearer ${apiKey}` // Pass the API key 
           },
           body: JSON.stringify({
             model: 'gpt-3.5-turbo', // Specify the model name
