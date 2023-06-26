@@ -9,7 +9,7 @@ Simple overview of use/purpose.
 * Make sure Node.js is installed on your machine
 * Install required libraries by running the following command:
 ```
-node install dotenv express openai
+npm install dotenv express openai
 ```
 
 ### Installing
