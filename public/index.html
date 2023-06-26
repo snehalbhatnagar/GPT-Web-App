@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bot</title>
+  <style>    
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #conversation {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    #voice-input {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GPT Audio Web App</h1>
+
+  <div id="conversation">
+    <!-- The conversation between the user and the bot will be displayed here -->
+  </div>
+
+  <div id="voice-input">
+    <button id="start-btn">Start Recording</button>
+    <button id="stop-btn">Stop Recording</button>
+  </div>
+
+  <script src="/index.js"></script>
+</body>
+</html>
