@@ -21,5 +21,5 @@ node install dotenv express openai
 *  Navigate to the root folder of the project
 * To run, type the following in the terminal:
 ```
-noder server.js
+node server.js
 ```
