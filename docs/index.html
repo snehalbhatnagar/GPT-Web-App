@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPT Audio Web App</title>
+  <meta name="description" content="Ask a question out loud and hear a GPT model answer. Speech recognition and speech synthesis run in your browser.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23123C3A'/%3E%3Crect x='12' y='7' width='8' height='13' rx='4' fill='%23F2C14E'/%3E%3Cpath d='M9 16a7 7 0 0 0 14 0M16 23v3' stroke='%23F2C14E' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1>GPT Audio Web App</h1>
+    <button class="link" id="settings-btn" aria-controls="settings" aria-expanded="false">Settings</button>
+  </header>
+
+  <section id="settings" class="settings" hidden>
+    <div id="mode-server" hidden>
+      <p>Connected to this app's server. Your questions go to <span id="model-name">the model</span> through the server, which holds the API key.</p>
+    </div>
+    <div id="mode-static" hidden>
+      <p><strong>This hosted copy has no server.</strong> Choose how it should answer:</p>
+      <label class="radio"><input type="radio" name="mode" value="echo" checked> Echo mode: no key needed. It reads your own words back, so you can test the microphone and voice.</label>
+      <label class="radio"><input type="radio" name="mode" value="key"> Use my OpenAI API key</label>
+      <div id="key-row" class="key-row" hidden>
+        <label for="api-key">OpenAI API key</label>
+        <input id="api-key" type="password" autocomplete="off" placeholder="sk-...">
+        <p class="fine">Kept in this tab's session storage only and sent straight to api.openai.com. It is cleared when you close the tab. Use a key with a spending limit.</p>
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="speak-toggle" checked> Read answers aloud</label>
+    <label for="voice-select">Voice</label>
+    <select id="voice-select"></select>
+  </section>
+
+  <main>
+    <div id="conversation" class="conversation" aria-live="polite">
+      <p class="empty" id="empty">Press the microphone and ask a question, or type one below.</p>
+    </div>
+
+    <p id="status" class="status" role="status"></p>
+
+    <form id="composer" class="composer">
+      <button type="button" id="mic" class="mic" aria-pressed="false" aria-label="Start listening">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none"/></svg>
+      </button>
+      <label for="text-input" class="sr">Type a question</label>
+      <input id="text-input" type="text" placeholder="Or type a question" autocomplete="off">
+      <button type="submit" class="send">Send</button>
+    </form>
+    <div class="row-actions">
+      <button class="link" id="stop-speaking" hidden>Stop speaking</button>
+      <button class="link" id="clear">Clear conversation</button>
+    </div>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
